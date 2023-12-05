@@ -2,7 +2,7 @@ package com.mona.batmansearch.data
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.mona.batmansearch.data.Consts.Companion.PER_PAGE
+import com.mona.batmansearch.presentation.consts.Consts.Companion.PER_PAGE
 import com.mona.batmansearch.data.model.searchItem.SearchItemsData
 import com.mona.batmansearch.data.model.searchItem.asModel
 import com.mona.batmansearch.data.network.api.SearchApi
