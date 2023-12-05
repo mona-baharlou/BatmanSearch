@@ -1,4 +1,4 @@
-package com.mona.batmansearch
+package com.mona.batmansearch.presentation.ui
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

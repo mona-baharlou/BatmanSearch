@@ -1,4 +1,4 @@
-package com.mona.batmansearch
+package com.mona.batmansearch.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,7 +13,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.mona.batmansearch.presentation.ui.theme.BatmanSearchTheme
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,29 +20,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             BatmanSearchTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    BatmanSearchTheme {
-        Greeting("Android")
     }
 }
