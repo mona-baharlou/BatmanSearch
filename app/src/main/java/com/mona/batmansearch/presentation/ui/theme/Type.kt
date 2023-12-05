@@ -1,4 +1,4 @@
-package com.mona.batmansearch.ui.theme
+package com.mona.batmansearch.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
