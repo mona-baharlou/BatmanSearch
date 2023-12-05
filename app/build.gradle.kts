@@ -99,7 +99,9 @@ dependencies {
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-    testImplementation(libs.mockk)
+    //testImplementation(libs.mockk)
+    testImplementation(libs.mockito)
+    androidTestImplementation(libs.mockito.android)
 }
 
 fun getOmdbApiKey(): String = project.findProperty("omdb_api_key").toString()
