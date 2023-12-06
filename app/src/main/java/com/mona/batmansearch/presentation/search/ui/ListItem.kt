@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,8 +24,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.mona.batmansearch.data.model.searchItem.SearchItemsData
 import com.mona.batmansearch.presentation.ui.theme.BatmanSearchTheme
-
-import androidx.compose.material.Text
+import com.mona.batmansearch.presentation.ui.theme.Typography
 
 @Composable
 internal fun ListItem(
@@ -63,7 +63,7 @@ internal fun ListItem(
         ) {
             Text(
                 text = searchItemData.title,
-                //style =  ,
+                style =  Typography.bodyLarge,
                 maxLines = 4
             )
         }
