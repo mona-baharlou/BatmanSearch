@@ -8,6 +8,7 @@ import androidx.navigation.navArgument
 import com.google.gson.Gson
 import com.mona.batmansearch.data.model.searchItem.SearchItemsData
 import com.mona.batmansearch.presentation.detail.navigation.param.SearchItemParametersType
+import com.mona.batmansearch.presentation.detail.ui.DetailRoute
 
 
 internal const val detailRoute = "detail_route"
@@ -30,5 +31,6 @@ fun NavGraphBuilder.detailScreen() {
             }
         )
     ) {
+        DetailRoute()
     }
 }

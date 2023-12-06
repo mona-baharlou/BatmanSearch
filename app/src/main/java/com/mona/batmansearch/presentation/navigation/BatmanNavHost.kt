@@ -4,9 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.NavHostController
+import com.mona.batmansearch.presentation.detail.navigation.detailScreen
+import com.mona.batmansearch.presentation.detail.navigation.navigateToDetail
 import com.mona.batmansearch.presentation.search.navigation.searchRoute
 import com.mona.batmansearch.presentation.search.navigation.searchScreen
-import com.mona.batmansearch.presentation.search.ui.SearchRoute
 
 @Composable
 fun BatmanNavHost(
@@ -18,10 +19,9 @@ fun BatmanNavHost(
         startDestination = searchRoute,
         modifier = modifier
     ) {
-        /*searchScreen(
+        searchScreen(
             onItemClick = navController::navigateToDetail
         )
-
-        detailScreen()*/
+        detailScreen()
     }
 }

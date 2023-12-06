@@ -27,7 +27,7 @@ class SearchDataSource(
         return try {
             val nextPage = params.key ?: 1
             val data =
-                searchApi.searchMovie(query, nextPage, PER_PAGE).search.map { it.asModel() }
+                searchApi.searchMovie(query, nextPage).Search.map { it.asModel() }
 
             LoadResult.Page(
                 data = data,

@@ -7,11 +7,11 @@ import retrofit2.http.Query
 
 interface SearchApi {
 
-    @GET
+    @GET("/")
     suspend fun searchMovie(
-        @Query("ca&s") ca: String,
+        @Query("s") s: String,
         @Query("page") page: Int,
-        @Query("per_page") perPage: Int,
-        @Query("api_key") apiKey: String = BuildConfig.OMDB_API_KEY
+        //@Query("per_page") perPage: Int,
+        @Query("apikey") apiKey: String = BuildConfig.OMDB_API_KEY
     ): SearchResponse
 }

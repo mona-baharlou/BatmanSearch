@@ -1,7 +1,7 @@
 package com.mona.batmansearch.data.model.searchItem
 
 import android.os.Parcelable
-import com.mona.batmansearch.data.network.model.Search
+import com.mona.batmansearch.data.network.model.SearchItem
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
 
@@ -22,10 +22,10 @@ data class SearchItemsData(
 
 }
 
-internal fun Search.asModel(): SearchItemsData.SearchItemData = SearchItemsData.SearchItemData(
-    title = title,
-    poster = poster,
-    year = year,
+internal fun SearchItem.asModel(): SearchItemsData.SearchItemData = SearchItemsData.SearchItemData(
+    title = Title,
+    poster = Poster,
+    year = Year,
     imdbID = imdbID,
-    type = type
+    type = Type
 )
