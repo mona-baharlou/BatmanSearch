@@ -1,5 +1,6 @@
 package com.mona.batmansearch.domain.usecase
 
+import androidx.lifecycle.LiveData
 import com.mona.batmansearch.data.network.model.detail.ItemDetail
 import com.mona.batmansearch.data.repository.DetailRepository
 import dagger.hilt.android.scopes.ViewModelScoped

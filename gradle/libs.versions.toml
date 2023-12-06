@@ -26,11 +26,14 @@ ksp = "1.9.10-1.0.13"
 constraintLayout = "1.0.1"
 #mockk = "1.13.8"
 mockito="5.1.1"
+composeRuntime="1.5.4"
 
 
 [libraries]
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "composeRuntime" }
+
 androidx-compose-ui-test = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }

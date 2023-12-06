@@ -1,5 +1,6 @@
 package com.mona.batmansearch.data.network.api
 
+import androidx.lifecycle.LiveData
 import com.mona.batmansearch.BuildConfig
 import com.mona.batmansearch.data.network.model.detail.ItemDetail
 import com.mona.batmansearch.data.network.model.SearchResponse

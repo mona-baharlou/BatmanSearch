@@ -1,8 +1,8 @@
 package com.mona.batmansearch.data.repository
 
+import androidx.lifecycle.LiveData
 import com.mona.batmansearch.data.network.api.SearchApi
 import com.mona.batmansearch.data.network.model.detail.ItemDetail
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Singleton
 
 

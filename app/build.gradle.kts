@@ -65,6 +65,8 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling)
     implementation(libs.core.ktx)
     implementation(libs.androidx.compose.constraint.layout)
+    implementation(libs.androidx.compose.runtime)
+
 
     implementation(libs.hilt.android)
     annotationProcessor(libs.hilt.compiler)

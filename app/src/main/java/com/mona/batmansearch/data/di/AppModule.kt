@@ -2,6 +2,7 @@ package com.mona.batmansearch.data.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.mona.batmansearch.data.network.api.SearchApi
+import com.mona.batmansearch.data.repository.DetailRepository
 import com.mona.batmansearch.data.repository.SearchRepository
 import dagger.Module
 import dagger.Provides
@@ -51,5 +52,11 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideSearchRepository(searchApi: SearchApi): SearchRepository = SearchRepository(searchApi)
+    fun provideSearchRepository(searchApi: SearchApi): SearchRepository =
+        SearchRepository(searchApi)
+
+    @Provides
+    @Singleton
+    fun provideDetailRepository(searchApi: SearchApi): DetailRepository =
+        DetailRepository(searchApi)
 }
