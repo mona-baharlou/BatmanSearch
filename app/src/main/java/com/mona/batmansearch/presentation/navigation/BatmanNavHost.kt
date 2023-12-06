@@ -18,7 +18,7 @@ fun BatmanNavHost(
         startDestination = searchRoute,
         modifier = modifier
     ) {
-       /* searchScreen(
+        /*searchScreen(
             onItemClick = navController::navigateToDetail
         )
 

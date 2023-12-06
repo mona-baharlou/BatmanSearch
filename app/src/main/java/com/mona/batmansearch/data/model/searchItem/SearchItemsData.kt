@@ -12,11 +12,11 @@ data class SearchItemsData(
     @Parcelize
     @Serializable
     data class SearchItemData(
-        val poster: String?,
-        val title: String,
-        val type: String?,
-        val year: String?,
-        val imdbID: String?
+        val poster: String = "",
+        val title: String = "",
+        val type: String = "",
+        val year: String = "",
+        val imdbID: String = ""
     ) : Parcelable
 
 

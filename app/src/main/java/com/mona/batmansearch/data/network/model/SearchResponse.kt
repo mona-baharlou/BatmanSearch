@@ -22,10 +22,10 @@ data class Items(
 @Serializable
 data class Search(
     val id: Int,
-    val poster: String?,
+    val poster: String,
     val title: String,
-    val type: String?,
-    val year: String?,
-    val imdbID: String?
+    val type: String,
+    val year: String,
+    val imdbID: String
 
 )
