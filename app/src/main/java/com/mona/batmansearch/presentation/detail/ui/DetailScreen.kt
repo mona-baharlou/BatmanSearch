@@ -70,6 +70,8 @@ internal fun DetailScreen(
                 )
 
         )
+
+
         Text(
             text = viewState.itemData.title,
             style = MaterialTheme.typography.headlineLarge,

@@ -104,6 +104,12 @@ dependencies {
     //testImplementation(libs.mockk)
     testImplementation(libs.mockito)
     androidTestImplementation(libs.mockito.android)
+
+    implementation(libs.androidx.room)
+    implementation(libs.androidx.room.ktx)
+    annotationProcessor(libs.androidx.room.compiler)
+//    kapt "androidx.room:room-compiler:"
+
 }
 
 fun getOmdbApiKey(): String = project.findProperty("omdb_api_key").toString()
