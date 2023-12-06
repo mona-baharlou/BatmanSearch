@@ -1,5 +1,8 @@
-package com.mona.batmansearch.data.model.itemDetail
+package com.mona.batmansearch.data.network.model.detail
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class ItemDetail(
     val Actors: String,
     val Awards: String,

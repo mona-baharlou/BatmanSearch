@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.mona.batmansearch.data.model.searchItem.SearchItemsData
+import com.mona.batmansearch.data.network.model.detail.ItemDetail
 import com.mona.batmansearch.domain.usecase.GetSearchUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
