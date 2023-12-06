@@ -4,6 +4,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.mona.batmansearch.data.model.searchItem.SearchItemsData
+import com.mona.batmansearch.presentation.detail.navigation.NAV_ARG_DATA
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -19,6 +20,8 @@ class DetailViewModel @Inject constructor(
     val viewState = mutableStateOf(DetailViewState())
 
     init {
-//savedStateHandle.get<SearchItemsData.SearchItemData>()
+        savedStateHandle.get<SearchItemsData.SearchItemData>(NAV_ARG_DATA)?.let {
+            viewState.value = viewState.value.copy(itemData = it)
+        }
     }
 }
