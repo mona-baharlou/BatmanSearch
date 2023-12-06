@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.google.gson.Gson
 import com.mona.batmansearch.data.model.searchItem.SearchItemsData
+import com.mona.batmansearch.presentation.detail.navigation.param.SearchItemParametersType
 
 
 internal const val detailRoute = "detail_route"
@@ -24,8 +25,10 @@ fun NavGraphBuilder.detailScreen() {
         route = "$detailRoute/{$NAV_ARG_DATA}",
         arguments = listOf(
             navArgument(NAV_ARG_DATA) {
-//type =params
+                type = SearchItemParametersType
+                nullable = false
             }
         )
-    )
+    ) {
+    }
 }
