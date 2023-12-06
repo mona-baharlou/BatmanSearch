@@ -6,6 +6,7 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTextInput
 import androidx.paging.PagingData
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import kotlinx.coroutines.flow.flow
@@ -65,6 +66,36 @@ class SearchScreenKtTest {
 
         //Then
         assert(ListItemSample.first().title == verifyTitle)
+    }
+
+    @Test
+    fun search_isClicked() {
+        // Given
+        val searchQuery = "a query"
+        var verifyQuery: String? = null
+
+        composeTestRule.setContent {
+            SearchScreen(
+                searchData = flow {},
+                onSearchClick = {
+                    verifyQuery = it
+                },
+                onItemClick = {},
+                initialEmptyState = false
+            )
+        }
+
+        // When
+        composeTestRule
+            .onNodeWithTag(SEARCH_TEXT_FIELD)
+            .performTextInput(searchQuery)
+
+        composeTestRule
+            .onNodeWithTag(SEARCH_BUTTON)
+            .performClick()
+
+        // Then
+        assert(searchQuery == verifyQuery)
     }
 
 
