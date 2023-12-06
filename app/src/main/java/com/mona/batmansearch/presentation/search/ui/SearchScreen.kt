@@ -155,11 +155,11 @@ internal fun SearchScreen(
                         }
 
                         loadState.refresh is LoadState.Error -> {
-//item(ErrorItem())
+                            item { ErrorItem() }
                         }
 
                         loadState.append is LoadState.Error -> {
-//item(ErrorItem())
+                            item { ErrorItem() }
                         }
                     }
                 }
