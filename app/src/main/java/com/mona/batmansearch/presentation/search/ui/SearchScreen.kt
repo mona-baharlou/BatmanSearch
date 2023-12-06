@@ -33,11 +33,14 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.ViewModel
 import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.mona.batmansearch.R
 import com.mona.batmansearch.data.model.searchItem.SearchItemsData
+import com.mona.batmansearch.presentation.search.viewmodel.SearchViewModel
 import com.mona.batmansearch.presentation.ui.theme.BatmanSearchTheme
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -49,6 +52,18 @@ const val SEARCH_TEXT_FIELD = "SEARCH_TEXT_FIELD"
 
 @VisibleForTesting
 const val SEARCH_BUTTON = "SEARCH_BUTTON"
+
+@Composable
+internal fun SearchRoute(
+    onItemClick: (itemData: SearchItemsData.SearchItemData) -> Unit,
+    viewModel: SearchViewModel = hiltViewModel()
+) {
+    SearchScreen(
+        searchData = viewModel.searchState,
+        onSearchClick = viewModel::makeSearch,
+        onItemClick = onItemClick
+    )
+}
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
