@@ -33,7 +33,9 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.paging.LoadState
 import androidx.paging.PagingData
+import androidx.paging.compose.collectAsLazyPagingItems
 import com.mona.batmansearch.R
 import com.mona.batmansearch.data.model.searchItem.SearchItemsData
 import com.mona.batmansearch.presentation.ui.theme.BatmanSearchTheme
@@ -47,11 +49,13 @@ const val SEARCH_TEXT_FIELD = "SEARCH_TEXT_FIELD"
 
 @VisibleForTesting
 const val SEARCH_BUTTON = "SEARCH_BUTTON"
+
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 internal fun SearchScreen(
     searchData: Flow<PagingData<SearchItemsData.SearchItemData>>,
     onSearchClick: (query: String) -> Unit,
+    onItemClick: (itemData: SearchItemsData.SearchItemData) -> Unit,
     initialEmptyState: Boolean = true
 ) {
 
@@ -124,7 +128,43 @@ internal fun SearchScreen(
         }
         Divider(color = Color.LightGray)
 
+        if (emptyState) {
+            Box(modifier = Modifier.fillMaxSize())
+        } else {
+            val lazyItems = searchData.collectAsLazyPagingItems()
 
+            LazyColumn(content = {
+                items(lazyItems.itemCount) { index ->
+                    lazyItems[index]?.let {
+                        ListItem(it) { itemData ->
+                            onItemClick(itemData)
+                        }
+                        Divider(color = Color.LightGray)
+                    }
+                }
+
+
+                lazyItems.apply {
+                    when {
+                        loadState.refresh is LoadState.Loading -> {
+                            //item(LoadingItem())
+                        }
+
+                        loadState.append is LoadState.Loading -> {
+//item(LoadingItem())
+                        }
+
+                        loadState.refresh is LoadState.Error -> {
+//item(ErrorItem())
+                        }
+
+                        loadState.append is LoadState.Error -> {
+//item(ErrorItem())
+                        }
+                    }
+                }
+            })
+        }
     }
 }
 
@@ -133,10 +173,12 @@ internal fun SearchScreen(
 @Composable
 private fun SearchPreview() {
     BatmanSearchTheme {
-        SearchScreen(searchData = flow {
-            emit(PagingData.from(ListItemSample))
-        },
+        SearchScreen(
+            searchData = flow {
+                emit(PagingData.from(ListItemSample))
+            },
             onSearchClick = {},
+            onItemClick = {},
             initialEmptyState = false
         )
     }
