@@ -147,11 +147,11 @@ internal fun SearchScreen(
                 lazyItems.apply {
                     when {
                         loadState.refresh is LoadState.Loading -> {
-                            //item(LoadingItem())
+                            item { LoadingItem() }
                         }
 
                         loadState.append is LoadState.Loading -> {
-//item(LoadingItem())
+                            item { LoadingItem() }
                         }
 
                         loadState.refresh is LoadState.Error -> {
