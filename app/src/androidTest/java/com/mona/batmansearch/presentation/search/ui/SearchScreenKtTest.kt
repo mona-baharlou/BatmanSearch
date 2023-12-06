@@ -5,6 +5,7 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.paging.PagingData
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import kotlinx.coroutines.flow.flow
@@ -36,6 +37,34 @@ class SearchScreenKtTest {
         composeTestRule
             .onNodeWithText(ListItemSample.first().title)
             .assertIsDisplayed()
+    }
+
+    @Test
+    fun list_item_isClicked() {
+
+        //Given
+        var verifyTitle: String? = null
+
+        composeTestRule.setContent {
+
+            SearchScreen(searchData = flow {
+                emit(PagingData.from(ListItemSample))
+            }, onSearchClick = {},
+                onItemClick = {
+                    verifyTitle = it.title
+                },
+                initialEmptyState = false
+            )
+
+        }
+
+        //WHEN
+        composeTestRule
+            .onNodeWithText(ListItemSample.first().title)
+            .performClick()
+
+        //Then
+        assert(ListItemSample.first().title == verifyTitle)
     }
 
 
