@@ -178,7 +178,7 @@ private fun PlotSection(itemState: ItemViewState) {
     ) {
 
         Text(
-            stringResource(R.string.plot),
+            text = stringResource(R.string.plot),
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier
                 .padding(14.dp)
@@ -191,7 +191,7 @@ private fun PlotSection(itemState: ItemViewState) {
         Text(
             text = itemState.itemDetail.Plot ?: "",
             style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.padding(12.dp),
+            modifier = Modifier.padding(2.dp),
             fontWeight = FontWeight.Bold,
             color = Color.Gray
 
