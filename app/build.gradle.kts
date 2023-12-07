@@ -106,7 +106,8 @@ dependencies {
     androidTestImplementation(libs.mockito.android)
 
     implementation(libs.androidx.room)
-    implementation(libs.androidx.room.ktx)
+    //implementation(libs.androidx.room.common)
+    //implementation(libs.androidx.room.ktx)
     annotationProcessor(libs.androidx.room.compiler)
 //    kapt "androidx.room:room-compiler:"
 

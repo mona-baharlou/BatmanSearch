@@ -76,8 +76,9 @@ kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-cor
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 
 androidx-room = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
-androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+#androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+androidx-room-common = { group = "androidx.room", name = "room-common", version = "2.6.1" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
