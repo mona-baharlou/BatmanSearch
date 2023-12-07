@@ -92,14 +92,17 @@ internal fun DetailScreen(
         )
 
         Divider(color = Color.LightGray ,
-            modifier = Modifier.padding(25.dp))
+            modifier = Modifier.padding(start = 22.dp, end = 22.dp))
+
+
 
         ImdbSection(itemState)
 
-        GenreSection(itemState)
-
         PlotSection(itemState)
+
     }
+
+
 
 
     //val lazyItems = searchData.collectAsLazyPagingItems()
@@ -114,7 +117,7 @@ internal fun DetailScreen(
 @Composable
 private fun ImdbSection(itemState: ItemViewState) {
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.padding(start = 8.dp , end = 8.dp),//.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
@@ -134,9 +137,31 @@ private fun ImdbSection(itemState: ItemViewState) {
                 .padding(14.dp)
                 .wrapContentSize(),
             fontWeight = FontWeight.Bold,
+            //color = Color.Gray
+
+        )
+
+        Text(
+            stringResource(R.string.genre),
+            style = MaterialTheme.typography.titleMedium,
+            modifier = Modifier
+                .padding(14.dp)
+                .wrapContentSize(),
+            fontWeight = FontWeight.Bold,
             color = Color.Gray
 
         )
+
+        Text(
+            text = itemState.itemDetail.Genre ?: "",
+            maxLines =1,
+            style = MaterialTheme.typography.titleMedium,
+            modifier = Modifier.padding(12.dp),
+            fontWeight = FontWeight.Bold,
+           // color = Color.Gray
+
+        )
+
     }
 }
 
@@ -160,6 +185,7 @@ private fun GenreSection(itemState: ItemViewState) {
 
         Text(
             text = itemState.itemDetail.Genre ?: "",
+            maxLines = 1,
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.padding(12.dp),
             fontWeight = FontWeight.Bold,
@@ -174,10 +200,10 @@ private fun GenreSection(itemState: ItemViewState) {
 private fun PlotSection(itemState: ItemViewState) {
     Row(
         modifier = Modifier.fillMaxSize(),
-        horizontalArrangement = Arrangement.SpaceBetween
+      //  horizontalArrangement = Arrangement.SpaceBetween
     ) {
 
-        Text(
+       /* Text(
             text = stringResource(R.string.plot),
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier
@@ -186,14 +212,14 @@ private fun PlotSection(itemState: ItemViewState) {
             fontWeight = FontWeight.Bold,
             color = Color.Gray
 
-        )
+        )*/
 
         Text(
             text = itemState.itemDetail.Plot ?: "",
             style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.padding(2.dp),
+            modifier = Modifier.padding(15.dp),
             fontWeight = FontWeight.Bold,
-            color = Color.Gray
+           // color = Color.Gray
 
         )
 
