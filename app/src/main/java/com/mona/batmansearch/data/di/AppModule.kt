@@ -1,9 +1,13 @@
 package com.mona.batmansearch.data.di
 
+import android.content.Context
+import androidx.room.Room
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.mona.batmansearch.data.db.MovieDb
 import com.mona.batmansearch.data.network.api.SearchApi
 import com.mona.batmansearch.data.repository.DetailRepository
 import com.mona.batmansearch.data.repository.SearchRepository
+import com.mona.batmansearch.presentation.ui.BatmanApplication
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,6 +24,12 @@ private const val BASE_URL = "https://www.omdbapi.com/"
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+
+    @Provides
+    @Singleton
+    fun provideContext(application: BatmanApplication): Context =
+        application.applicationContext
+
     @Provides
     @Singleton
     fun providesNetworkJson(): Json = Json {
@@ -59,4 +69,13 @@ object AppModule {
     @Singleton
     fun provideDetailRepository(searchApi: SearchApi): DetailRepository =
         DetailRepository(searchApi)
+
+
+    @Provides
+    @Singleton
+    fun provideDatabase(context: Context): MovieDb =
+        Room.databaseBuilder(context, MovieDb::class.java, "room.db")
+            .build()
+
+
 }
